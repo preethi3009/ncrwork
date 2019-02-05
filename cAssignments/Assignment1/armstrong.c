@@ -14,8 +14,8 @@ void main()
 	for(j=0;j<i;j++)
  		sum=sum+pow(a[j],i);
 	if(sum==q)
-		printf("\nit is an amstrong number");
+		printf("\nit is an armstrong number");
 	else
-		printf("\nit is not an amstrong number");
+		printf("\nit is not an armstrong number");
 }
 
