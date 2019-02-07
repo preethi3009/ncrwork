@@ -13,7 +13,10 @@ int main()
 		for (j = 2; j <= i; j++)
 			printf("%d", j);
 		printf("\n");
+<<<<<<< HEAD
 
+=======
+>>>>>>> d8985dd9cd2421d35a70f2870e4f34d5087900d0
 	}
 	return 0;
 }
