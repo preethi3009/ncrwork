@@ -1,0 +1,18 @@
+2. A C program contains the following declaration
+char *color[6] = {“red”, “green”, “blue”, “white”, “black”, “yellow”};
+
+a. What is the meaning of color?
+->color is a pointer to a char array of 6 elements.
+
+b. What is the meaning of (color+2);
+->Address pointing to the 2nd element of the array
+
+c. What is the value of *color?
+->red
+
+d. What is the value of *(color+2)?
+->blue
+
+e. How do color[5] and *(color + 5) differ?.
+->color[5] is the 5th element of the array i.e yellow
+*(color+5) points to the 5th element of the array i.e yellow
