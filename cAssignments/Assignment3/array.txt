@@ -1,0 +1,18 @@
+5. C program contains the following declaration
+ int x[8]= {10,20,30,40,50,60,70,80};
+Analyze the meaning of below statements 
+
+a. What is the meaning of x?
+->x is the base address of the array.
+
+b. What is the meaning of (x+2)?
+->(x+2) is the address pointing to the 2nd element of array
+
+c. What is the value of *x?
+->x[0]=10
+
+d. What is the value of (*x+2)?
+->(10+2)=12
+
+e. What is the value of *(x+2)?
+->x[2]=20  
