@@ -11,7 +11,7 @@ int main()
 	printf("enter %d strings\n", n);
 	for (i = 0; i < n; i++)
 	{
-		scanf("%s", str);
+		scanf("\n%[^\n]s", str);
 		len = strlen(str) + 1;
 		arr[i] = (char *)malloc((len) * sizeof(char));
 		strcpy(arr[i], str);
