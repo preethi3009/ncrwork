@@ -19,26 +19,32 @@ public:
 		real = a;
 		img = b;
 	}
-	void add(Complex &c1, Complex &c2)
-	{
-		real = c1.real + c2.real;
-		img = c1.img + c2.img;
-	}
-	void mul(Complex &c1, Complex &c2)
-	{
-		real = (c1.real*c2.real)-(c1.img*c2.img);
-		img = (c1.real*c2.img) + (c1.img*c2.real);
-	}
+	friend Complex add(Complex, Complex);
+	friend Complex mul(Complex,Complex);
 	void display()
 	{
 		cout << real << "+" << img << "i"<<endl;
 	}
 };
+Complex add(Complex c1, Complex c2)
+{
+	Complex temp;
+	temp.real = c1.real + c2.real;
+	temp.img = c1.img + c2.img;
+	return temp;
+}
+Complex mul(Complex c1, Complex c2)
+{
+	Complex temp;
+	temp.real = (c1.real*c2.real) - (c1.img*c2.img);
+	temp.img = (c1.real*c2.img) + (c1.img*c2.real);
+	return temp;
+}
 int main()
 {
 	Complex c, c1(3), c2(1,2);
-	c.add(c1, c2);
+	c=add(c1, c2);
 	c.display();
-	c.mul(c1, c2);
+	c=mul(c1, c2);
 	c.display();
 }
