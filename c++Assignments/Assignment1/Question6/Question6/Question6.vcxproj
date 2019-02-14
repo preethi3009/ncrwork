@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{9271B1CF-DAB3-4679-8723-061FBE2638C9}</ProjectGuid>
+    <ProjectGuid>{57CCBA22-F48C-451F-B65A-5964085EC629}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Question6</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
