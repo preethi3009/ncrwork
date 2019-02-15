@@ -54,14 +54,15 @@ public:
 		img++;
 		return (*this);
 	}
-	/*Complex operator=(Complex c)
+	Complex operator,(Complex c)
 	{
-		Complex temp;
-		temp.real = c.real;
-		temp.img = c.img;
-		return temp;
-	}*/
+		return c;
+	}
+	friend ostream & operator<<(ostream &cout, Complex c);
+	friend istream & operator>>(istream &cin, Complex &c);
 };
+
+	
 int main()
 {
 	Complex c1,c2(3,8),c3(1,5),c4(c2);
@@ -80,8 +81,26 @@ int main()
 	c1 = c3++;
 	cout << "post_decr:- " << endl;
 	c1.display();
-	//c1 = c3;
-	//cout << "assignment:- " << endl;
-	//c1.display();
+	c1 = (c2,c3);
+	cout << "','oprator:- " << endl;
+	c1.display();
+	cout << c2;
+	cin >> c1;
+	cout << c1;
 	return 0;
 }
+
+ostream & operator<<(ostream &cout, Complex c)
+{
+	cout << "real = " << c.real << endl;
+	cout << "img = " << c.img << endl;
+	return cout;
+}
+
+istream & operator>>(istream &cin, Complex &c)
+{
+	cin >> c.real;
+	cin >> c.img;
+	return cin;
+}
+
