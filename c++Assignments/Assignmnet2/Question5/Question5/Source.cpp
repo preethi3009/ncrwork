@@ -89,7 +89,7 @@ istream & operator>>(istream &cin,String &s)
 }
 int main()
 {
-	String s1, s2("apple"),s3("fruit"),s4(s2);
+	String s1,s2("apple"),s3("fruit"),s4(s2);
 	s2.display();
 	cin >> s1;
 	cout << s1;
