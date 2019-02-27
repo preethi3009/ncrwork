@@ -31,7 +31,7 @@ int expandShorthand(char cShorthandArray[], char cExpandedArray[])
 
 	while (cShorthandArray[iShorthandArrayIndex] != '\0')//looping through the shorthand array
 	{
-		if (!isalnum(cShorthandArray[iShorthandArrayIndex]))
+		if (!isalnum(cShorthandArray[iShorthandArrayIndex]))//checking for valid input
 			return -1;
 
 		else if (cShorthandArray[iShorthandArrayIndex]!= '-')
@@ -59,10 +59,10 @@ int expandShorthand(char cShorthandArray[], char cExpandedArray[])
 		
 		iShorthandArrayIndex++;
 	}
-	cExpandedArray[iExpandedArrayIndex] = '\0';
+	cExpandedArray[iExpandedArrayIndex] = '\0';//terminating the expanded array with null character
 	
 	printf("the expanded string is:\n");
-	puts(cExpandedArray);
+	puts(cExpandedArray);//printing the expanded array
 	
 	return 0;
 }
