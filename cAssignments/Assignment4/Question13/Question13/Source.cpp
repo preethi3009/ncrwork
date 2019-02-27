@@ -1,43 +1,68 @@
+//13.Write a function expand(s1, s2) which expands shorthand notations of s1
+//like a - d into abcd and 0 - 9 to 0123456789 in s2.For example if the string
+//in s1 is 0123a - e1 - 4 then s1 is expanded in s2 to 0123abcde1234
+
 #include<stdio.h>
 #include<string.h>
-int expand(char[], char[]);
+#include<ctype.h>
+
+int expandShorthand(char[], char[]);//function for expanding the shorthand notation
+
 int main()
 {
-	char s1[50], s2[50];
-	printf("enter string using shorthand notations\n");
-	scanf("%s", s1);
-	expand(s1, s2);
+	char cShorthandArray[50], cExpandedArray[50],iReturn;
+
+	printf("enter string using shorthand notations\n");//input from user
+	scanf("%s", cShorthandArray);
+	
+	iReturn=expandShorthand(cShorthandArray, cExpandedArray);
+	
+	if (-1 == iReturn)
+		printf("Invalid input\n");
+	
 	return 0;
 }
 
 
-int expand(char s1[], char s2[])
+int expandShorthand(char cShorthandArray[], char cExpandedArray[])
 {
-	int i = 0,j=0;
-	char c;
-	while (s1[i] != '\0')
+	int iShorthandArrayIndex = 0,iExpandedArrayIndex=0;
+	char cTemp;
+
+	while (cShorthandArray[iShorthandArrayIndex] != '\0')//looping through the shorthand array
 	{
-		if (s1[i]!= '-')
+		if (!isalnum(cShorthandArray[iShorthandArrayIndex]))
+			return -1;
+
+		else if (cShorthandArray[iShorthandArrayIndex]!= '-')
 		{
-			s2[j] = s1[i];
-			j++;
+			cExpandedArray[iExpandedArrayIndex] = cShorthandArray[iShorthandArrayIndex];
+			iExpandedArrayIndex++;
 		}
-		else
+		
+		else if(cShorthandArray[iShorthandArrayIndex]=='-'&&cShorthandArray[iShorthandArrayIndex+1]!='\0')
 		{
-			c = s1[i - 1];
-			c++;
-			while (c!= s1[i + 1])
+			cTemp = cShorthandArray[iShorthandArrayIndex - 1];
+			cTemp++;
+			
+			while (cTemp != cShorthandArray[iShorthandArrayIndex + 1])
 			{
-				s2[j] = c;
-				j++;
-				c++;
+				cExpandedArray[iExpandedArrayIndex] = cTemp;
+				iExpandedArrayIndex++;
+				cTemp++;
 			}
-			s2[j] = c;
+			cExpandedArray[iExpandedArrayIndex] = cTemp;
 		}
-		i++;
+		
+		else
+				return -1;
+		
+		iShorthandArrayIndex++;
 	}
-	s2[j] = '\0';
+	cExpandedArray[iExpandedArrayIndex] = '\0';
+	
 	printf("the expanded string is:\n");
-	puts(s2);
+	puts(cExpandedArray);
+	
 	return 0;
 }

@@ -18,8 +18,13 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Environment_Variables.cpp">
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="text.txt">
       <Filter>Source Files</Filter>
-    </ClCompile>
+    </Text>
+    <Text Include="sample.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
