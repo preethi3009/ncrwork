@@ -5,28 +5,27 @@ using namespace std;
 //node structure
 struct node
 {
-	int data;
-	struct node *next;
+	int data;//element
+	struct node *next;//pointer to next node
 };
 
 //linked list class
 class list
 {
-	struct node *start;
+	struct node *start;//start of the list
 public:
-	list();
-	void insert_first(int);
-	void insert_last(int);
-	void insert_before(int, int);
-	void insert_after(int, int);
-	int delete_first();
-	int delete_last();
-	void delete_spec(int);
-	void travel_frwd();
-	void travel_bkwd();
-	void reverse();
-	friend void print(struct node *curr);
-	~list();
+	list();//constructor
+	void insert_first(int);//inserting element at the start of the list
+	void insert_last(int);//inserting element at the end of the list
+	void insert_before(int, int);//inserting before a given element in the list
+	void insert_after(int, int);//inserting after a given element in the list
+	int delete_first();//deleting the first element of the list
+	int delete_last();//deleting the last element of the list
+	void delete_spec(int);//deleting a specified element in the list
+	void travel_frwd();//traversing forward 
+	void travel_bkwd();//traversing backward
+	friend void print(struct node *curr);//friend function for printing the nodes in reverse order
+	~list();//destructor
 };
 
 //default constructor
@@ -65,17 +64,16 @@ void list::insert_last(int ele)
 //inserting element before a given key element
 void list::insert_before(int key, int ele)
 {
+	struct node *temp,*curr;
+	temp = new node;
 	if (start->data == key)
 	{
-		struct node *temp;
-		temp = new node;
 		temp->data = ele;
 		temp->next = start;
 		start = temp;
 	}
 	else
 	{
-		struct node *curr;
 		curr = start;
 		while (curr->next != NULL && curr->next->data != key)
 		{
@@ -83,8 +81,6 @@ void list::insert_before(int key, int ele)
 		}
 		if (curr->next != NULL)
 		{
-			struct node *temp;
-			temp = new node;
 			temp->data = ele;
 			temp->next = curr->next;
 			curr->next = temp;
@@ -139,29 +135,32 @@ int list::delete_first()
 //deleting the last element from the list
 int list::delete_last()
 {
-	int x=-999;
+	int del_ele=-999;
 	if (start != NULL)
 	{
 		if (start->next == NULL)
 		{
-			x = start->data;
+			del_ele = start->data;
 			delete start;
 			start = NULL;
 		}
 		else
 		{
 			struct node *curr;
+			struct node *temp;
+			temp = new node;
 			curr = start;
 			while (curr->next->next != NULL)
 				curr = curr->next;
-			x = curr->next->data;
-			delete curr->next;
+			temp = curr->next;
+			del_ele = temp->data;
 			curr->next = NULL;
+			delete temp;
 		}
 	}
 	else
 		cout << "list is empty" << endl;
-	return x;
+	return del_ele;
 }
 
 //delete a specific element in the list
