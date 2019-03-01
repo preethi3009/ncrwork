@@ -112,7 +112,7 @@ DWORD WINAPI  primaryThreadFun(LPVOID lpParameter)
 DWORD WINAPI  secondaryThreadFun(LPVOID lpParameter)
 {
 	printf("In secondary thread\n");
-	for (int i = 0; i <= 5; i++)j
+	for (int i = 0; i <= 5; i++)
 	{
 		printf("(%d)\n", i);
 		Sleep(500);
