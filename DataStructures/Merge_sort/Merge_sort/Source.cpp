@@ -1,29 +1,41 @@
 #include<iostream>
+
 using namespace std;
-void merge(int, int);
-void sort(int, int, int);
-int arr[50];
+
+int *arr;
+
+void merge(int , int );
+void sort(int , int , int );
+
+//main function
 int main()
 {
-	int n,i,low,high,mid;
+	int arr_size,i;
+
 	cout << "enter array size" << endl;
-	cin >> n;
-	low = 0;
-	high = n-1;
+	cin >> arr_size;
+
+	//allocating memory to the array
+	arr = new int[arr_size];
+
+	//input from user
 	cout << "enter array elements" << endl;
-	for (i = 0; i < n; i++)
+	for (i = 0; i < arr_size; i++)
 	{
 		cin >> arr[i];
 	}
-	mid = (low + high) / 2;
-	merge(low, mid);
-	merge(mid+1, high);
-	sort(low, mid, high);
+
+	merge(0,arr_size-1);
+
+	//displaying sorted array
 	cout << "sorted elements are" << endl;
-	for (i = 0; i < n; i++)
+	for (i = 0; i < arr_size; i++)
 		cout << arr[i] << endl;
+
 	return 0;
 }
+
+//function for dividing the array
 void merge(int low, int high)
 {
 	int mid;
@@ -35,37 +47,44 @@ void merge(int low, int high)
 		sort(low, mid, high);
 	}
 }
-void sort(int l1s, int l1e, int l2e)
+
+//function for sorting and merging the arrays
+void sort(int list1Start, int list1End, int list2End)
 {
-	int l2s = l1e + 1;
-	int *l3, i, j, k;
-	l3 = new int[l2e - l1e + 1];
-	i = l1s;
-	j = l2s;
-	k = 0;
-	while (i <l1e&&j<l2e)
+	int list2Start = list1End + 1;
+	int *list3, list1Index, list2Index, list3Index;
+
+	//creating memory for list3
+	list3 = new int[list2End - list1End + 1];
+
+	list1Index = list1Start;//for traversing through list1
+	list2Index = list2Start;//for traversing through list2
+	list3Index = 0;//for traversing through list3
+
+
+	while (list1Index <= list1End&&list2Index <= list2End)
 	{
-		if(arr[i] > arr[j])
+		if (arr[list1Index] > arr[list2Index])
 		{
-			l3[k++] = arr[j++];
+			list3[list3Index++] = arr[list2Index++];
 		}
 		else
 		{
-			l3[k++] = arr[i++];
+			list3[list3Index++] = arr[list1Index++];
 		}
 	}
-	while(i <l1e)
+	while (list1Index <= list1End)
 	{
-		l3[k++] = arr[i++];
+		list3[list3Index++] = arr[list1Index++];
 	}
-	while(j < l2e)
+	while (list2Index <= list2End)
 	{
-		l3[k++] = arr[j++];
+		list3[list3Index++] = arr[list2Index++];
 	}
-	while (l2e <= l1e)
+	while (list2End >= list1End)
 	{
-		arr[l2e--] = l3[k--];
-		delete l3;
+		arr[list2End--] = list3[--list3Index];
 	}
 
 }
+
