@@ -26,7 +26,6 @@ int main()
 	}
 
 	merge(0,arr_size-1);
-
 	//displaying sorted array
 	cout << "sorted elements are" << endl;
 	for (i = 0; i < arr_size; i++)
