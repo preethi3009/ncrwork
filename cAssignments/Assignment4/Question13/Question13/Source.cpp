@@ -29,6 +29,9 @@ int expandShorthand(char cShorthandArray[], char cExpandedArray[])
 	int iShorthandArrayIndex = 0, iExpandedArrayIndex = 0;
 	char cTemp;
 
+	if (cShorthandArray[iShorthandArrayIndex] == '-')
+		return -1;
+
 	while (cShorthandArray[iShorthandArrayIndex] != '\0')//looping through the shorthand array
 	{
 		if (!isalnum(cShorthandArray[iShorthandArrayIndex])&&cShorthandArray[iShorthandArrayIndex]!='-')//checking for valid input
