@@ -1,4 +1,4 @@
-//11.	Write a program to create a child process.
+//9. Write a program to create a child process.
 //Use GetCurrentProcessId, GetCurrentThreadId, GetProcessId, GetThreadId, GetProcessIdOfThread
 //to print process and thread information in each of the process.
 

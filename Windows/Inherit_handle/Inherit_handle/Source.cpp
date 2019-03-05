@@ -19,16 +19,16 @@ int _tmain(int argc, LPWSTR argv[])
 
 	if (INVALID_HANDLE_VALUE == hFile)
 		printf("creation file unsuccess\n %d ",GetLastError());
-	printf("%d", hFile);
 
-	LPCWSTR lp = (LPCWSTR)hFile;
-
+	//filling blocks of memory with zeroes
 	ZeroMemory(&si, sizeof(si));
+	si.cb = sizeof(si);
 	ZeroMemory(&pi, sizeof(pi));
 
 
-	bReturn = CreateProcess(L"C:\Program Files\Git\git_bash.exe",			// No module name (use command line)
-		(LPWSTR)hFile,        // Command line
+
+	bReturn = CreateProcess(L"C://Users//Ravi kumar Kesari//Source//Repos//preethi3009//ncrwork//Windows//Create_File//Debug//Create_File.exe",			// No module name (use command line)
+		(LPWSTR)&hFile,        // Command line
 		&sa,           // Process handle not inheritable
 		&sa,           // Thread handle not inheritable
 		TRUE,          // Set handle inheritance to FALSE

@@ -1,3 +1,8 @@
+//Write a program to increment the value of a shared integer by two threads of the same process.
+//Print the final value of shared integer in the process’s primary thread.
+//Print the case when final value of shared integer is inconsistent.
+
+
 #include<stdio.h>
 #include<windows.h>
 #include<tchar.h>
@@ -25,7 +30,7 @@ DWORD WINAPI  thread_fun2(LPVOID lpParameter)
 
 int main(int argc, TCHAR *argv[])
 {
-	HANDLE hThread1,hThread2;
+	HANDLE hThread1,hThread2,arr_hand[2];
 	DWORD dwThreadId1,dwThreadId2;
 
 	//creating threads
@@ -55,7 +60,7 @@ int main(int argc, TCHAR *argv[])
 			thread_fun2,  //lpStartAddress
 			NULL, //lpParameter
 			0,         //dwCreationFlags
-			&dwThreadId1     //lpThreadId
+			&dwThreadId2     //lpThreadId
 		);
 
 		//checking whether thread is created or not
@@ -68,10 +73,13 @@ int main(int argc, TCHAR *argv[])
 		{
 			printf("thread 2 created successfully\n\n");
 		}
+
+		arr_hand[0] = hThread1;
+		arr_hand[1] = hThread2;
 		
 		//waiting for threads to execute
 		printf("waiting..\n\n");
-		getchar();
+		WaitForMultipleObjects(2, arr_hand, TRUE, INFINITE);
 		
 		printf("Main process\nshared variable = %d", g_x);
 

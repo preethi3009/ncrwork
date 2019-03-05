@@ -1,6 +1,8 @@
-//13.Write a function expand(s1, s2) which expands shorthand notations of s1
+//Write a function expand(s1, s2) which expands shorthand notations of s1
 //like a - d into abcd and 0 - 9 to 0123456789 in s2.For example if the string
 //in s1 is 0123a - e1 - 4 then s1 is expanded in s2 to 0123abcde1234
+
+#define _CRT_SECURE_NO_WARNINGS
 
 #include<stdio.h>
 #include<string.h>
@@ -31,10 +33,10 @@ int expandShorthand(char cShorthandArray[], char cExpandedArray[])
 
 	while (cShorthandArray[iShorthandArrayIndex] != '\0')//looping through the shorthand array
 	{
-		if (!isalnum(cShorthandArray[iShorthandArrayIndex])&&cShorthandArray[iShorthandArrayIndex]!='-')//checking for valid input
+		if (!isalnum(cShorthandArray[iShorthandArrayIndex]))//checking for valid input
 			return -1;
 
-	 if (cShorthandArray[iShorthandArrayIndex] != '-')
+		else if (cShorthandArray[iShorthandArrayIndex] != '-')
 		{
 			cExpandedArray[iExpandedArrayIndex] = cShorthandArray[iShorthandArrayIndex];
 			iExpandedArrayIndex++;
@@ -44,8 +46,7 @@ int expandShorthand(char cShorthandArray[], char cExpandedArray[])
 		{
 			cTemp = cShorthandArray[iShorthandArrayIndex - 1];
 			cTemp++;
-			if (cShorthandArray[iShorthandArrayIndex + 1] < cShorthandArray[iShorthandArrayIndex-1])
-				return -1;
+
 			while (cTemp != cShorthandArray[iShorthandArrayIndex + 1])
 			{
 				cExpandedArray[iExpandedArrayIndex] = cTemp;
