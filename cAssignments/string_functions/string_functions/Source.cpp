@@ -48,9 +48,8 @@ char *string_concat(char *string1, char *string2)
 	}
 
 	temp[i] = '\0';
-
 	string1 = string_copy(temp);
-	
+	free(temp);
 	return string1;
 }
 
@@ -85,7 +84,9 @@ char *string_rev(char *string)
 		length--;
 	}
 	temp[i-1] = '\0';
-	return temp;
+	string = string_copy(temp);
+	free(temp);
+	return string;
 }
 //main function
 int main()
@@ -127,10 +128,12 @@ int main()
 			scanf("%s", s);
 			string1 = (char *)malloc(sizeof(char)*(string_length(s) + 1));
 			string1 = string_copy(s);
+			
 			printf("Enter string2\n");
 			scanf("%s", s);
 			string2 = (char *)malloc(sizeof(char)*(string_length(s) + 1));
 			string2 = string_copy(s);
+			
 			result = string_concat(string1, string2);
 			printf("string concatenation successful\n");
 			printf("concatenated string is %s\n", result);
@@ -172,7 +175,6 @@ int main()
 		printf("Do you want to continue?y/n\n");
 		scanf(" %c", &cont);
 	} while (cont == 'y' || cont == 'Y');
-
 
 	return 0;
 }

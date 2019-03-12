@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#text1").keyup(function(){
+   $("#text2").val($("#text1").val());
+});
+  
+});
+</script>
+</head>
+<body>
+Text1:<input type="text" id="text1"><br>
+<br>Text2:<input type="text" id="text2">
+
+</body>
+</html>

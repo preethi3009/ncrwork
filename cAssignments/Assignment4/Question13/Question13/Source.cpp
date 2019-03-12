@@ -37,17 +37,17 @@ int expandShorthand(char cShorthandArray[], char cExpandedArray[])
 		if (!isalnum(cShorthandArray[iShorthandArrayIndex])&&cShorthandArray[iShorthandArrayIndex]!='-')//checking for valid input
 			return -1;
 
-	 if (cShorthandArray[iShorthandArrayIndex] != '-')
+		if (cShorthandArray[iShorthandArrayIndex] != '-')
 		{
 			cExpandedArray[iExpandedArrayIndex] = cShorthandArray[iShorthandArrayIndex];
 			iExpandedArrayIndex++;
 		}
 
-		else if (cShorthandArray[iShorthandArrayIndex] == '-'&&cShorthandArray[iShorthandArrayIndex + 1] != '\0')
+		else if (cShorthandArray[iShorthandArrayIndex] == '-' && cShorthandArray[iShorthandArrayIndex + 1] != '\0')
 		{
 			cTemp = cShorthandArray[iShorthandArrayIndex - 1];
 			cTemp++;
-			if (cShorthandArray[iShorthandArrayIndex + 1] < cShorthandArray[iShorthandArrayIndex-1])
+			if ((cShorthandArray[iShorthandArrayIndex + 1]) <= (cShorthandArray[iShorthandArrayIndex-1]))
 				return -1;
 			while (cTemp != cShorthandArray[iShorthandArrayIndex + 1])
 			{
