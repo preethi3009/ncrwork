@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+
+$("#hide1").click(function(){
+    $(".present").toggle();
+    if($("#hide1").val()=="Hide")
+    $("#hide1").val("Show");
+  else  
+  $("#hide1").val("Hide");
+  });
+
+$("#hide2").click(function(){
+    $(".permanent").toggle();
+    if($("#hide2").val()=="Hide")
+    $("#hide2").val("Show");
+  else  
+  $("#hide2").val("Hide");
+  });
+
+$("#check").change(function(){
+
+if($(this).prop("checked")) {
+               $("#hno2").val($("#hno1").val());
+                $("#street2").val($("#street1").val());
+                $("#ldm2").val($("#ldm1").val());
+                $("#mdl2").val($("#mdl1").val());
+                $("#state2").val($("#state1").val());
+                $("#pin2").val($("#pin1").val());
+} 
+else
+{
+ 	$("#hno2").val(" ");
+                $("#street2").val(" ");
+                $("#ldm2").val(" ");
+                $("#mdl2").val(" ");
+                $("#state2").val(" ");
+                $("#pin2").val(" ");
+}
+
+});
+});
+
+</script>
+
+<body>
+
+PRESENT ADDRESS: <input id="hide1" type="button" value="Hide"/><br>
+<div class="present">
+<form >
+<pre>
+H.NO :		<input id="hno1" type="text" /><br>
+STREET : 	<input id="street1" type="text"/><br>
+LANDMARK :	<input id="ldm1" type="text"/><br>
+MANDAL:    	<select id="mdl1" name="MANDAL">
+ 		 <option value="Balanagar">BALANAGAR</option>
+  		<option value="Alwal">ALWAL</option>
+  		<option value="Bachupally">BACHUPALLY</option>
+  		<option value="Kukatpally">KUKATPALLY</option>
+		</select><br>
+STATE : 	<input id="state1" type="text"/><br>
+PINCODE : 	<input id="pin1" type="text"/> 
+</pre>
+</form>
+</div>
+
+<br>PERMANENT ADDRESS: <input id="hide2" type="button" value="Hide"/><br><br>
+<div class="permanent">
+ <input id="check" type="checkbox"/> SAME AS PRESENT ADDRESS <br><br>
+<form >
+<pre>
+H.NO :		<input id="hno2" type="text" /><br>
+STREET : 	<input id="street2" type="text"/><br>
+LANDMARK :	<input id="ldm2" type="text"/><br>
+MANDAL:    	<select id="mdl2" name="MANDAL">
+ 		 <option value="Balanagar">BALANAGAR</option>
+  		<option value="Alwal">ALWAL</option>
+  		<option value="Bachupally">BACHUPALLY</option>
+  		<option value="Kukatpally">KUKATPALLY</option>
+		</select><br>
+STATE : 	<input id="state2" type="text"/><br>
+PINCODE : 	<input id="pin2" type="text"/> <br><br><br>
+</pre>
+</form>
+</div>
+</body>
+
+</html>
