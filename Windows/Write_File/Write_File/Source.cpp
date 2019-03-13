@@ -1,5 +1,5 @@
 
-//5.	Write a program to create a new file with CreateFile and use WriteFile to write text to file.
+//5.Write a program to create a new file with CreateFile and use WriteFile to write text to file.
 //Verify the written text by manually opening file in notepad / wordpad etc
 
 #include<stdio.h>
@@ -10,7 +10,7 @@ int _tmain(int argc, TCHAR *argv[])
 {
 	HANDLE hFile;//handle to the file
 	DWORD dwnbw=0;//no of bytes to write
-	WCHAR tBuffer[] = L"sample text to the file";// buffer that receives the data read from the file
+	WCHAR tBuffer[] = L"SAMPLE CONTENT TO THE FILE";// buffer that receives the data read from the file
 
 	//creating handle to the file
 	hFile = CreateFile(argv[1],//filename passed as argument
@@ -44,7 +44,7 @@ int _tmain(int argc, TCHAR *argv[])
 	}
 	else
 	{
-		_tprintf(TEXT("Wrote to %s successfully.\n"), dwnbw, argv[1]);
+		_tprintf(TEXT("Wrote to %s successfully.\n"),argv[1]);
 	}
 	
 	//closing the handle to the file
