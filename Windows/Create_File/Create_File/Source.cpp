@@ -1,19 +1,21 @@
+
 //4. Write a program to open an existing file with CreateFile and use ReadFile
 //to read the contents of file till EOF and print the contents to console
-
 
 #include<stdio.h>
 #include<tchar.h>
 #include<Windows.h>
 
-
-#define BUFFSIZE 100//size of the  buffer that receives the data read from the file
+//size of the  buffer that receives the data read from the file
+#define BUFFSIZE 100
 
 int _tmain(int argc, TCHAR *argv[])
 {
 	HANDLE hFile;//handle to the file
 	DWORD dwnbr = 0;//no of bytes read
-	TCHAR tBuffer[BUFFSIZE] = { 0 };// buffer that receives the data read from the file
+
+	// buffer that receives the data read from the file
+	TCHAR tBuffer[BUFFSIZE] = { 0 };
 
 	//creating handle to the file
 	hFile = CreateFile(argv[1],//filename passed as argument
@@ -33,7 +35,7 @@ int _tmain(int argc, TCHAR *argv[])
 	else
 		_tprintf(_T("FILE NAME : %s\n"), argv[1]);
 
-	//reaading the file and printing the contents to the console
+	//reading the file and printing the contents to the console
 	BOOL ret = ReadFile(hFile,//handle to the file
 		tBuffer,// buffer that receives the data read from the file
 		BUFFSIZE,//size of the  buffer that receives the data read from the file
