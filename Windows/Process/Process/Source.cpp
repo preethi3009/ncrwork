@@ -21,7 +21,7 @@ void _tmain(int argc, TCHAR *argv[])
 	ZeroMemory(&pi2, sizeof(pi2));
 
 	//checking for valid no of arguments
-	if (argc != 2)
+	if (argc != 3)
 	{
 		printf("Usage: %s [cmdline]\n", argv[0]);
 		return;
@@ -49,9 +49,8 @@ void _tmain(int argc, TCHAR *argv[])
 	else
 	{
 		printf("process 1 created successfully\n");
-		printf("current process id - %d", GetCurrentProcessId());
-		printf("current thread id - %d", GetCurrentThreadId());
-		printf("process id (%d)\n\n", GetProcessId(pi1.hProcess));
+		printf("process id (%d)\n", GetProcessId(pi1.hProcess));
+		printf("handle : (%d)\n\n", pi1.hProcess);
 	}
 
 	//closing process handles
@@ -80,7 +79,8 @@ void _tmain(int argc, TCHAR *argv[])
 	else
 	{
 		printf("process 2 created successfully\n");
-		printf("process id (%d)\n\n", GetProcessId(pi2.hProcess));
+		printf("process id (%d)\n", GetProcessId(pi2.hProcess));
+		printf("handle : (%d)\n\n", pi2.hProcess);
 	}
 
 	// Close process and thread handles. 
