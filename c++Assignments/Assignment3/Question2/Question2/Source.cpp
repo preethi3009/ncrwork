@@ -89,7 +89,7 @@ void main()
 			fs.set_size(size);
 
 			float f = 1.1;
-			cout << "Pushing elements onto fs" << endl;
+			cout << "Pushing elements onto float stack" << endl;
 			while (fs.push(f))
 			{
 				cout << f << ' ';
@@ -97,7 +97,7 @@ void main()
 			}
 			cout << endl << "Stack Full." << endl
 
-				<< endl << "Pop0ping elements from fs" << endl;
+				<< endl << "Popping elements from float stack" << endl;
 			while (fs.pop(f))
 				cout << f << ' ';
 			cout << endl << "Stack Empty" << endl;
@@ -109,14 +109,14 @@ void main()
 			is.set_size(size);
 
 			int i = 1.1;
-			cout << "Pushing elements onto is" << endl;
+			cout << "Pushing elements into int stack" << endl;
 			while (is.push(i))
 			{
 				cout << i << ' ';
 				i += 1;
 			}
 			cout << endl << "Stack Full" << endl
-				<< endl << "Popping elements from is" << endl;
+				<< endl << "Popping elements from int stack" << endl;
 			while (is.pop(i))
 				cout << i << ' ';
 			cout << endl << "Stack Empty" << endl;
@@ -128,14 +128,14 @@ void main()
 			cs.set_size(size);
 
 			char i = 'a';
-			cout << "Pushing elements onto is" << endl;
+			cout << "Pushing elements onto int stack" << endl;
 			while (cs.push(i))
 			{
 				cout << i << ' ';
 				i += 1;
 			}
 			cout << endl << "Stack Full" << endl
-				<< endl << "Popping elements from is" << endl;
+				<< endl << "Popping elements from int stack" << endl;
 			while (cs.pop(i))
 				cout << i << ' ';
 			cout << endl << "Stack Empty" << endl;
@@ -145,7 +145,7 @@ void main()
 			cout << "wrong option" << endl;
 		}
 
-		cout << "do you want to continue" << endl;
+		cout <<endl<< "do you want to continue" << endl;
 		cin >> choice;
 
 	} while (choice=='y'||choice=='Y');
