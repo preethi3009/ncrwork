@@ -2,6 +2,7 @@
 
 #include <iostream>
 using namespace std;
+#define SIZE 100
 
 template <class T>
 class Stack
@@ -13,13 +14,20 @@ class Stack
 public:
 
 	//constructor with the default size 10
-	Stack(int s)
+	Stack()
+	{
+		size = SIZE;
+		top = -1;  // initialize stack
+		stackPtr = new T[size];
+	}
+	
+	void set_size(int s)
 	{
 		size = s > 0 && s < 1000 ? s : 10;
 		top = -1;  // initialize stack
 		stackPtr = new T[size];
 	}
-	
+
 	// push an element onto the Stack 
 	int push(const T& item)
 	{
@@ -41,8 +49,16 @@ public:
 		}
 		return 0;  // pop unsuccessful
 	}
-	int isEmpty()const { return top == -1; }
-	int isFull() const { return top == size - 1; }	
+
+	int isEmpty() 
+	{
+		return top == -1;
+	}
+
+	int isFull() 
+	{
+		return top == size - 1; 
+	}	
 };
 
 
@@ -50,36 +66,87 @@ void main()
 {
 	typedef Stack<float> FloatStack;
 	typedef Stack<int> IntStack;
-	typedef Stack<char *> charstk;
+	typedef Stack<char> CharStack;
 
-	charstk cs(2);
-	char *s;
-	FloatStack fs(5);
-	float f = 1.1;
-	cout << "Pushing elements onto fs" << endl;
-	while (fs.push(f))
+	int option;
+	char choice;
+	
+	do
 	{
-		cout << f << ' ';
-		f += 1.1;
-	}
-	cout << endl << "Stack Full." << endl
-		<< endl << "Pop0ping elements from fs" << endl;
-	while (fs.pop(f))
-		cout << f << ' ';
-	cout << endl << "Stack Empty" << endl;
-	cout << endl;
+		cout << "enter option 1.float stack 2.int stack 3.char stack" << endl;
+		cin >> option;
 
-	IntStack is(2);
-	int i = 1.1;
-	cout << "Pushing elements onto is" << endl;
-	while (is.push(i))
-	{
-		cout << i << ' ';
-		i += 1;
-	}
-	cout << endl << "Stack Full" << endl
-		<< endl << "Popping elements from is" << endl;
-	while (is.pop(i))
-		cout << i << ' ';
-	cout << endl << "Stack Empty" << endl;
+		int size;
+
+		cout << "enter size of the stack" << endl;
+		cin >> size;
+
+		switch (option)
+		{
+		case 1: {
+
+			FloatStack fs;
+			fs.set_size(size);
+
+			float f = 1.1;
+			cout << "Pushing elements onto fs" << endl;
+			while (fs.push(f))
+			{
+				cout << f << ' ';
+				f += 1.1;
+			}
+			cout << endl << "Stack Full." << endl
+
+				<< endl << "Pop0ping elements from fs" << endl;
+			while (fs.pop(f))
+				cout << f << ' ';
+			cout << endl << "Stack Empty" << endl;
+			break;
+		}
+		case 2: {
+
+			IntStack is;
+			is.set_size(size);
+
+			int i = 1.1;
+			cout << "Pushing elements onto is" << endl;
+			while (is.push(i))
+			{
+				cout << i << ' ';
+				i += 1;
+			}
+			cout << endl << "Stack Full" << endl
+				<< endl << "Popping elements from is" << endl;
+			while (is.pop(i))
+				cout << i << ' ';
+			cout << endl << "Stack Empty" << endl;
+			break;
+		}
+		case 3: {
+
+			CharStack cs;
+			cs.set_size(size);
+
+			char i = 'a';
+			cout << "Pushing elements onto is" << endl;
+			while (cs.push(i))
+			{
+				cout << i << ' ';
+				i += 1;
+			}
+			cout << endl << "Stack Full" << endl
+				<< endl << "Popping elements from is" << endl;
+			while (cs.pop(i))
+				cout << i << ' ';
+			cout << endl << "Stack Empty" << endl;
+			break;
+		}
+		default:
+			cout << "wrong option" << endl;
+		}
+
+		cout << "do you want to continue" << endl;
+		cin >> choice;
+
+	} while (choice=='y'||choice=='Y');
 }
